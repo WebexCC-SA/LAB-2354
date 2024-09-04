@@ -39,10 +39,10 @@ extra_css:
   - stylesheets/extra.css
 plugins:
   - search
-  - with-pdf:
-      cover_title: LABXXX-1234
-      cover_subtitle: My famous WebexOne Lab
-      cover_logo: template_assets/wx1Splash_new.gif
+  # - with-pdf:
+  #     cover_title: LABXXX-1234
+  #     cover_subtitle: My famous WebexOne Lab
+  #     cover_logo: template_assets/wx1Splash_new.gif
   - glightbox:
       touchNavigation: true
       loop: false
@@ -81,4 +81,7 @@ nav:
       - Overview: overview.md
       - Lab 1 - Getting Started: lab1_getting_started.md
       - Conclusion: conclusion.md
-  - Topologies: topologies.md
+  # - Topologies: topologies.md
+  - Cheat Sheet: cheatsheet.md
+
+

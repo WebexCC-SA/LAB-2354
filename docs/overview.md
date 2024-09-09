@@ -2,7 +2,7 @@
 
 ## Learning Objectives
 
-This lab will give you an introduction to ...
+This lab will give you an introduction to crafting call flows which extend the functionality of the Webex Contact Center and integrate them into a seamless experience for your agents and customers.
 
 ## Disclaimer
 
@@ -10,12 +10,26 @@ Although the lab design and configuration examples could be used as a reference,
 
 ## Lab Access
 
-From your workstation open an RDP (Remote Desktop) session to the following host named "wkst1":
+[Webex Control Hub](https://admin.webex.com){:target="_blank"}
 
-- IP: 1.2.3.4
-- Username: corp\demouser
-- Password: C1sco12345
+
+> Login:
+> 
+> Password:
+> 
+> Webex Phone Number:
+>
+> Assigned Inbound Channel Number:
+>
+> Assigned Inbound Channel Name:
+
+---
 
 ## Getting Started
 
-This lab leverages Cisco dCloud ...
+> Log into Webex 
+>
+> Log into Control Hub
+> 
+
+---

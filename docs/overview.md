@@ -13,15 +13,15 @@ Although the lab design and configuration examples could be used as a reference,
 [Webex Control Hub](https://admin.webex.com){:target="_blank"}
 
 
-> Login:
+> Login: <w>Provided by proctor</w>
 > 
-> Password:
+> Password: <w>Provided by proctor</w>
 > 
-> Webex Phone Number:
+> Webex Phone Number: <w>Provided by proctor</w>
 >
-> Assigned Inbound Channel Number:
+> Assigned Inbound Channel Number: <w>Provided by proctor</w>
 >
-> Assigned Inbound Channel Name:
+> Assigned Inbound Channel Name: <w>Provided by proctor</w>
 
 ---
 

@@ -82,7 +82,8 @@ nav:
       # - Lab 1 - Getting Started: lab1_getting_started.md
       - Lab 1 - Routing Returning Callers: lab1_returningCustomer.md
       - Lab 2 - Last Agent Routing Using Simulated AutoCSAT: lab2_LARbasedOnCSAT.md
-      - Conclusion: conclusion.md
+      - Lab 3 - Creating a Self Service Support Option in an Emergency: lab3_CreatingSelfService.md
+      # - Conclusion: conclusion.md
   # - Topologies: topologies.md
   - Cheat Sheet: cheatsheet.md
 

@@ -14,6 +14,7 @@
 ## Preconfigured Elements
 
 1. Wait treatment Subflow which will provide Music in Queue and Queue Messages. 
+2. Connector for calling Webex Contact Center APIs
 
 ---
 
@@ -21,13 +22,40 @@
 
 ### Create an new flow
 
+> Create a flow named <w>yourLabID</w>_ReturningCaller 
+
 ### Create these flow variables
 
+> Name: previousID
+>
+> Type: String
+>
+> Default Value: empty
 
+---
+
+
+### Add a Play Message node for our welcome message
+
+> Connect the New Phone Contact to this Play Message node
+>
+> Enable Text-To-Speech
+>
+> Select the Connector: Cisco Cloud Text-to-Speech
+>
+> Click the Add Text-to-Speech Message button
+>
+> Delete the Selection for Audio File
+>
+> Text-to-Speech Message: Welcome to the Webex Contact Center Lab for Solutions use-cases and APIs.
+>
+---
 
 ### Add an HTTP Request node for our query
 
 > Select Use Authenticated Endpoint
+>
+> Connector: 
 > 
 > Path: /search
 > 
@@ -37,11 +65,11 @@
 >
 > Copy this GraphQL query into the request body:
 ```JSON
-{"query":"query refactored315($from:Long! $to:Long! $timeComparator:QueryTimeType $filter:TaskFilters){task(from:$from,to:$to,timeComparator:$timeComparator,filter:$filter){tasks{id status channelType createdTime endedTime origin destination contactReason direction owner{name id}terminationType isActive isCallback recordingLocation isRecordingDeleted lastWrapupCodeName csatScore sentiment autoCsat}}}","variables":{"from":"1725027914212","to":"1725028506363","timeComparator":"endedTime","filter":{"status":{"equals":"ended"}}}}
+{"query":"query lastTen($from:Long! $to:Long! $timeComparator:QueryTimeType $filter:TaskFilters){task(from:$from,to:$to,timeComparator:$timeComparator,filter:$filter){tasks{id status channelType createdTime endedTime origin destination direction terminationType isActive isCallback lastWrapupCodeName}}}","variables":{"from":"{{now() | epoch(inMillis=true) - 600000}}","to":"{{now() | epoch(inMillis=true)}}","timeComparator":"endedTime","filter":{"and":[{"status":{"equals":"ended"}},{"origin":{"equals":"{{NewPhoneContact.ANI}}"}},{"connectedCount":{"gte":1}}]}}}
 ```
 > <details><summary>Expanded Query For Understanding (optional)</summary>
 ```GraphQL
-query refactored315(
+query lastTen(
   $from: Long!
   $to: Long!
   $timeComparator: QueryTimeType
@@ -56,34 +84,38 @@ query refactored315(
       endedTime
       origin
       destination
-      contactReason
       direction
-      owner {
-        name
-        id
-      }
       terminationType
       isActive
       isCallback
-      recordingLocation
-      isRecordingDeleted
       lastWrapupCodeName
-      csatScore
-      sentiment
-      autoCsat
     }
   }
 }
 
 Variables:
 {
-  "from": "1725027914212",
-  "to": "1725028506363",
+  "from": "{{now() | epoch(inMillis=true) - 600000}}", # time now - 10 minutes represented in EPOCH time(ms)
+  "to": "{{now() | epoch(inMillis=true)}}", # time now represented in EPOCH time(ms)
   "timeComparator": "endedTime",
   "filter": {
-    "status": {
-      "equals": "ended"
-    }
+    "and": [
+      {
+        "status": {
+          "equals": "ended"
+        }
+      },
+      {
+        "origin": {
+          "equals": "{{NewPhoneContact.ANI}}" # ANI or caller phone number
+        }
+      },
+      {
+        "connectedCount": {
+          "gte": 1
+        }
+      }
+    ]
   }
 }
 ```
@@ -91,28 +123,86 @@ Variables:
 
 > Parse Settings:
 >
-> - Content Type: JSON
+> Content Type: JSON
 >
->       - Output Variable:
->       - Path Expression:
+> - Output Variable: `previousID`
+> - Path Expression: `$.data.task.tasks[0].id`
 >
 > ---
 
 ### Add a Condition node
+> Expression: `{{previousID is empty}}`
+>
+> We will connect the True node in a future step.
+>
+> Connect the False node edge to the Play Message node created in the next step.
+>
+---
 
 ### Add a Play Message node
+> Connect the False node edge from the previous step to this node
+>
+> Enable Text-To-Speech
+>
+> Select the Connector: Cisco Cloud Text-to-Speech
+>
+> Click the Add Text-to-Speech Message button
+>
+> Delete the Selection for Audio File
+>
+> Text-to-Speech Message: It looks like you were just working with an agent and had to call back in.  We are prioritizing this call for the next available agent.
+>
+---
 
-### Add a Queue Call node
+### Add a Queue Contact node
+> Select Static Queue
+>
+> Queue: <w>yourLabID</w>_queue
+>
+> Select Static Priority
+>
+> Static Priority Value: P1
+>
+---
 
 ### Add a Subflow node
 
+---
+
 ### Add a Disconnect Contact node
 
-### Add a Queue Call node
+---
+
+### Add a Queue Contact node
+> Connect the True node edge from the Condition node to this node
+> 
+> Select Static Queue
+>
+> Queue: <w>yourLabID</w>_queue
+>
+> Connect the Output node edge from this node to the Subflow node
+---
+
+### <details><summary>Check your flow</summary>![](./assets/lab1_flow.png)</details>
+
+---
 
 ### Publish your flow
+> Turn on Validation at the bottom right corner of teh flow builder
+>
+> If there are no Flow Errors, Click Publish
+>
+> Add a publish note
+>
+> Add Version Label(s): Live 
+>
+> Click Publish Flow
 
-### Map your flow to the inbound channel
+---
+
+### Map your flow to your inbound channel
+
+---
 
 ## Testing
 

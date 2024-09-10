@@ -24,6 +24,8 @@
 
 > Create a flow named <w>yourLabID</w>_ReturningCaller 
 
+---
+
 ### Create these flow variables
 
 > Name: previousID
@@ -47,7 +49,7 @@
 >
 > Delete the Selection for Audio File
 >
-> Text-to-Speech Message: Welcome to the Webex Contact Center Lab for Solutions use-cases and APIs.
+> Text-to-Speech Message: Welcome to Lab 1 of Solutions use-cases and APIs.
 >
 ---
 
@@ -92,7 +94,8 @@ query lastTen(
     }
   }
 }
-
+```
+``` JSON
 Variables:
 {
   "from": "{{now() | epoch(inMillis=true) - 600000}}", # time now - 10 minutes represented in EPOCH time(ms)
@@ -157,7 +160,7 @@ Variables:
 ### Add a Queue Contact node
 > Select Static Queue
 >
-> Queue: <w>yourLabID</w>_queue
+> Queue: <w>yourQueueID</w>
 >
 > Select Static Priority
 >
@@ -178,7 +181,7 @@ Variables:
 > 
 > Select Static Queue
 >
-> Queue: <w>yourLabID</w>_queue
+> Queue: <w>yourQueueID</w>
 >
 > Connect the Output node edge from this node to the Subflow node
 ---
@@ -188,7 +191,7 @@ Variables:
 ---
 
 ### Publish your flow
-> Turn on Validation at the bottom right corner of teh flow builder
+> Turn on Validation at the bottom right corner of the flow builder
 >
 > If there are no Flow Errors, Click Publish
 >

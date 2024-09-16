@@ -77,7 +77,8 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Home: index.md
-  - Lab:
+  - Labs:
+      - Welcome: welcome.md
       - Overview: overview.md
       # - Lab 1 - Getting Started: lab1_getting_started.md
       - Lab 1 - Routing Returning Callers: lab1_returningCustomer.md
@@ -86,5 +87,6 @@ nav:
       # - Conclusion: conclusion.md
   # - Topologies: topologies.md
   - Cheat Sheet: cheatsheet.md
+  - Additional Resources: https://webexcc-sa.github.io
 
 

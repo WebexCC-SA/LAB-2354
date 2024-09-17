@@ -24,3 +24,12 @@
     --md-typeset-a-color: #3a7fff;
     --md-accent-fg-color: #00bdeb;
 }
+body copy::after{
+content: " " url(../assets/copy-svgrepo-com.svg);   
+
+
+}
+/* copy svg {
+    height:50px;
+   fill:#00bdeb;
+} */

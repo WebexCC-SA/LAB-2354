@@ -22,13 +22,13 @@
 
 ### Create an new flow
 
-> Create a flow named <w>yourLabID</w>_ReturningCaller 
+> Create a flow named <copy><w class ="POD">yourLabID</w>_ReturningCaller</copy>
 
 ---
 
 ### Create these flow variables
 
-> Name: previousID
+> Name: <copy>previousID</copy>
 >
 > Type: String
 >
@@ -49,7 +49,7 @@
 >
 > Delete the Selection for Audio File
 >
-> Text-to-Speech Message: Welcome to Lab 1 of Solutions use-cases and APIs.
+> Text-to-Speech Message: <copy>Welcome to Lab 1 of Solutions use-cases and APIs.</copy>
 >
 ---
 
@@ -160,7 +160,7 @@ Variables:
 ### Add a Queue Contact node
 > Select Static Queue
 >
-> Queue: <w>yourQueueID</w>
+> Queue: <w class="Queue">yourQueueID</w>
 >
 > Select Static Priority
 >
@@ -181,7 +181,7 @@ Variables:
 > 
 > Select Static Queue
 >
-> Queue: <w>yourQueueID</w>
+> Queue: <w class="Queue">yourQueueID</w>
 >
 > Connect the Output node edge from this node to the Subflow node
 ---
@@ -209,3 +209,4 @@ Variables:
 
 ## Testing
 
+<script src='../assets/load.js'><script>

@@ -12,11 +12,11 @@
 # Build
 ### Create an new flow
 
-> Create a flow named <w>yourLabID</w>_LARwCSAT 
+> Create a flow named <copy><w class="POD">yourLabID</w>_LARwCSAT</copy>
 
 ### Create these flow variables
 
-> Name: agentID
+> Name: <copy>agentID</copy>
 >
 > Type: String
 >
@@ -24,7 +24,7 @@
 
 ---
 
-> Name: queriedCSAT
+> Name: <copy>queriedCSAT</copy>
 >
 > Type: Decimal
 >
@@ -49,7 +49,7 @@
 >
 > Delete the Selection for Audio File
 >
-> Text-to-Speech Message: Welcome to Lab 2 of Solutions use-cases and APIs.
+> Text-to-Speech Message: <copy>Welcome to Lab 2 of Solutions use-cases and APIs.</copy>
 >
 ---
 
@@ -134,15 +134,15 @@ Variables:
 > Content Type: JSON
 >
 > - Output Variable: `agentID`
-> - Path Expression: `$.data.task.tasks[0].owner.id`
+> - Path Expression: <copy>`$.data.task.tasks[0].owner.id`</copy>
 >
 > - Output Variable: `queriedCSAT`
-> - Path Expression: `$.data.task.tasks[0].simulatedCSAT.value`
+> - Path Expression: <copy>`$.data.task.tasks[0].simulatedCSAT.value`</copy>
 >
 ---
 
 ### Add a Condition node
-> Expression: `{{agentID is empty}}`
+> Expression: <copy>`{{agentID is empty}}`</copy>
 >
 > We will connect the True node in a future step.
 >
@@ -161,11 +161,11 @@ Variables:
 >
 > Static Priority Value: P1
 >
-> Reporting Queue: yourQueueID
+> Reporting Queue: <w class="Queue">yourQueueID</w>
 >
 > Park Contact if Agent Unavailable: False
 >
-> Recovery Queue: yourQueueID
+> Recovery Queue: <w class="Queue">yourQueueID</w>
 >
 > Connect the Output and Error node edges to the Queue Contact node created in the next step
 ---
@@ -175,7 +175,7 @@ Variables:
 > 
 > Select Static Queue
 >
-> Queue: <w>yourQueueID</w>
+> Queue: <w class="Queue">yourQueueID</w>
 >
 > Connect the Output node edge from this node to the Subflow node
 ---
@@ -189,3 +189,5 @@ Variables:
 ---
 
 # Testing
+
+<script src='../assets/load.js'><script>

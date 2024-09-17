@@ -10,26 +10,34 @@ Although the lab design and configuration examples could be used as a reference,
 
 ## Lab Access
 
-[Webex Control Hub](https://admin.webex.com){:target="_blank"}
+In this lab we will be using Webex for making calls into the Contact Center and for viewing demos which will be shared by the proctor.  We will be using the same account for Admin and Agent activities in the Contact Center.
 
 
 > Login: <w class="login">Provided by proctor</w>
 > 
-> Password: <w class="pw">Provided by proctor</w>
+> Password: <w class="PW">Provided by proctor</w>
+>
+> Assigned Inbound Channel Number: <w class="EPDN">Provided by proctor</w>
+>
+> Assigned Inbound Channel Name: <w class="EPname">Provided by proctor</w>
 > 
-> Webex Phone Number: <w class="wxp">Provided by proctor</w>
->
-> Assigned Inbound Channel Number: <w class="podNum">Provided by proctor</w>
->
-> Assigned Inbound Channel Name: <w class="podName">Provided by proctor</w>
+> Webex Phone Number: <w class="WxC">Provided by proctor</w>
 
 ---
 
 ## Getting Started
 
-> Log into Webex 
+> Log into Webex:
 >
-> Log into Control Hub
+> - Username: <w class="login">Provided by proctor</w>
+> - Password: <w class="PW">Provided by proctor</w>
 > 
 
 ---
+> Log into [Webex Control Hub](https://admin.webex.com){:target="_blank"} 
+
+> Login: <w class="login">Provided by proctor</w>
+> 
+> Password: <w class="PW">Provided by proctor</w>
+
+<script src='../assets/load.js'><script>

@@ -13,31 +13,36 @@ Although the lab design and configuration examples could be used as a reference,
 In this lab we will be using Webex for making calls into the Contact Center and for viewing demos which will be shared by the proctor.  We will be using the same account for Admin and Agent activities in the Contact Center.
 
 
-> Login: <w class="login">Provided by proctor</w>
+> Login: <copy><w class="login">Provided by proctor</w></copy>
 > 
-> Password: <w class="PW">Provided by proctor</w>
+> Password: <copy><w class="PW">Provided by proctor</w></copy>
 >
-> Assigned Inbound Channel Number: <w class="EPDN">Provided by proctor</w>
+> Webex Phone Number: <copy><w class="WxC">Provided by proctor</w></copy>
 >
-> Assigned Inbound Channel Name: <w class="EPname">Provided by proctor</w>
+> Assigned Inbound Channel Name: <copy><w class="EPname">Provided by proctor</w></copy>
 > 
-> Webex Phone Number: <w class="WxC">Provided by proctor</w>
+> Assigned Inbound Channel Number: <copy><w class="EPDN">Provided by proctor</w></copy>
+>
+> Assigned Queue Name: <copy><w class="Queue">Provided by proctor</w></copy>
+>
+> Assigned Team name: <copy><w class="Team">Provided by proctor</w></copy>
+
 
 ---
 
 ## Getting Started
 
-> Log into Webex:
+> Log into Webex on your PC:
 >
-> - Username: <w class="login">Provided by proctor</w>
-> - Password: <w class="PW">Provided by proctor</w>
+> - Username: <copy><w class="login">Provided by proctor</w></copy>
+> - Password: <copy><w class="PW">Provided by proctor</w></copy>
 > 
 
 ---
-> Log into [Webex Control Hub](https://admin.webex.com){:target="_blank"} 
+> Log into [Webex Control Hub](https://admin.webex.com){:target="_blank"} in Chrome
 
-> Login: <w class="login">Provided by proctor</w>
+> Login: <copy><w class="login">Provided by proctor</w></copy>
 > 
-> Password: <w class="PW">Provided by proctor</w>
+> Password: <copy><w class="PW">Provided by proctor</w></copy>
 
 <script src='../assets/load.js'><script>

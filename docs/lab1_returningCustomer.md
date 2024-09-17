@@ -129,12 +129,12 @@ Variables:
 > Content Type: JSON
 >
 > - Output Variable: `previousID`
-> - Path Expression: `$.data.task.tasks[0].id`
+> - Path Expression: <copy>`$.data.task.tasks[0].id`</copy>
 >
 > ---
 
 ### Add a Condition node
-> Expression: `{{previousID is empty}}`
+> Expression: <copy>`{{previousID is empty}}`</copy
 >
 > We will connect the True node in a future step.
 >

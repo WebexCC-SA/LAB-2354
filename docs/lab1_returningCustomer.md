@@ -57,7 +57,7 @@
 
 > Select Use Authenticated Endpoint
 >
-> Connector: 
+> Connector: WxCC_API
 > 
 > Path: /search
 > 
@@ -134,7 +134,7 @@ Variables:
 > ---
 
 ### Add a Condition node
-> Expression: <copy>`{{previousID is empty}}`</copy
+> Expression: <copy>`{{previousID is empty}}`</copy>
 >
 > We will connect the True node in a future step.
 >
@@ -204,6 +204,10 @@ Variables:
 ---
 
 ### Map your flow to your inbound channel
+> 
+>
+>
+
 
 ---
 

@@ -9,7 +9,7 @@
 2. Connector for calling Webex Contact Center APIs
 3. Agent Editable, Reportable Global Variable
 
-# Build
+## Build
 ### Create an new flow
 
 > Create a flow named <copy><w class="POD">yourLabID</w>_LARwCSAT</copy>
@@ -58,7 +58,7 @@
 
 > Select Use Authenticated Endpoint
 >
-> Connector: 
+> Connector: WxCC_API
 > 
 > Path: /search
 > 

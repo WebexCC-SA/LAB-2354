@@ -206,11 +206,43 @@ Variables:
 ### Map your flow to your inbound channel
 > Navigate to Control Hub > Contact Center > Channels
 >
-> 
-
+> Locate your Inbound Channel (you can use the search): <copy><w class="EPname"></w></copy>
+>
+> Select the Routing Flow: <copy><w class="POD"></w>_ReturningCaller</copy>
+>
+> Select the Version Label: Live
+>
+> Click Save in the lower right corner of the screen
 
 ---
 
 ## Testing
+
+1. Launch the [Agent Desktop](https://desktop.wxcc-us1.cisco.com/) and log in using the Desktop option.
+2. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+3. On your Agent Desktop, set your status to available
+      1. You should be offered a call, click on the accept button. (You may want to mute the mic on both Webex and the Agent Desktop)
+      2. After a few moments end the call and select a wrapup code.
+4. In your Flow:
+      1. Open the Debugger
+      2. Select the last interaction (at the top of the list)
+      3. Trace the steps taken in the flow
+5. Answer these questions:
+      1. Was the call queued with priority?
+6. Close the Debugger
+7. Using Webex, place another call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+8. On your Agent Desktop, set your status to available
+      1. You should be offered a call, click on the accept button. (You may want to mute the mic on both Webex and the Agent Desktop)
+      2. After a few moments end the call and select a wrapup code.
+9. In your Flow:
+      1. Open the debugger
+      2. Select the last interaction (at the top of the list)
+      3. Trace the steps taken in the flow
+10. Answer these questions:
+      1. Was the call queued with priority?
+
+
+## Once you have completed the testing, let the instructor know.
+---
 
 <script src='../assets/load.js'><script>

@@ -87,6 +87,6 @@ nav:
       - Conclusion: conclusion.md
   # - Topologies: topologies.md
   - Cheat Sheet: cheatsheet.md
-  - Additional Resources: additionalResources.md #https://webexcc-sa.github.io
+  - <z onclick='(function(){window.open("https://webexcc-sa.github.io","_blank")}())'>Additional Resources</z>: additionalResources.md #https://webexcc-sa.github.io
 
 

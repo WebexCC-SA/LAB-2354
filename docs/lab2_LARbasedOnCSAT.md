@@ -28,7 +28,7 @@
 >
 > Type: Decimal
 >
-> Default Value: 0.0
+> Default Value: <copy>0.0</copy>
 
 ---
 

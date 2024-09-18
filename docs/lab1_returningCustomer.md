@@ -204,9 +204,9 @@ Variables:
 ---
 
 ### Map your flow to your inbound channel
+> Navigate to Control Hub > Contact Center > Channels
+>
 > 
->
->
 
 
 ---

@@ -1,3 +1,6 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 .md-typeset__table {
     min-width: 100%;
 }
@@ -24,12 +27,21 @@
     --md-typeset-a-color: #3a7fff;
     --md-accent-fg-color: #00bdeb;
 }
-body copy::after{
-content: " " url(../assets/copy-svgrepo-com.svg);   
+copy::after{
+/* content: " " url(../assets/copy-svgrepo-com.svg);    */
+content: " \e14d";
+font-family: "Material Icons";
 
-
+/* content: ' \f0c5';
+font-family: FontAwesome;
+font-style: normal;
+font-weight: normal;
+text-decoration: inherit; */
 }
 /* copy svg {
     height:50px;
    fill:#00bdeb;
 } */
+copy:hover::after {
+    color: #00bdeb;
+}

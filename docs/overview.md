@@ -10,7 +10,7 @@ Although the lab design and configuration examples could be used as a reference,
 
 ## Lab Access
 
-In this lab we will be using Webex for making calls into the Contact Center and for viewing demos which will be shared by the proctor.  We will be using the same account for Admin and Agent activities in the Contact Center.
+In this lab we will be using Webex for making calls into the Contact Center and for viewing demos which will be shared by the instructor.  We will be using the same account for Admin and Agent activities in the Contact Center.  Your guide will reflect your specific environment variables, including login information, Channels, Queues, Teams, and assigned numbers in the steps of the actual lab as you progress.
 
 
 > Login: <copy><w class="login">Provided by proctor</w></copy>
@@ -29,6 +29,7 @@ In this lab we will be using Webex for making calls into the Contact Center and 
 
 
 ---
+
 
 ## Getting Started
 

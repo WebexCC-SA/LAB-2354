@@ -7,9 +7,98 @@
 ### High Level Explanation
 
 ## Preconfigured elements
+1. Existing main flow for the IT department
+2. Business Mours
+3. Business Hours Overrides
+4. Webhook for sending SMS
 
-# Build
-<!-- <iframe src="https://app.sli.do/event/b7TmCKP7DD1YZq2fBSEnGJ/questions" height="100%" width="25%" frameBorder="0" style="min-height: 560px;" allow="clipboard-write" title="Slido"></iframe> -->
-# Testing
+## Build
+
+### Add a Get Queue Info node
+
+---
+
+### Add a Menu node
+
+
+---
+
+### Add a Collect Digits node
+
+
+---
+
+### Add an HTTP Request node
+
+
+---
+
+
+### Add A Play Message node
+
+
+---
+
+### Add a Disconnect Contact node
+
+
+---
+
+
+### Add a Queue Contact node
+
+
+---
+
+
+### Add a Play Music node
+
+
+---
+
+### Publish the flow
+ 
+---
+
+### Map to your Channel
+
+---
+
+## Unit Test the Flow
+
+
+---
+
+
+## Import the CrowdStrike_Starter Flow
+
+---
+
+### Replace the Play Message node which we put in once we identified the event with a Menu node
+
+---
+
+### Add a Go To node
+
+---
+
+### Publish the Flow Using the Test Tag
+
+---
+
+## Dev Testing
+
+---
+
+### Publish the flow with the Live Tag
+
+---
+
+## Smoke Test
+
+---
+
+
+
 
 <script src='../assets/load.js'><script>

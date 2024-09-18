@@ -39,7 +39,7 @@
 
 ### Add a Play Message node for our welcome message
 
-> Connect the New Phone Contact to this Play Message node
+> Connect the New Phone Contact output node edge to this Play Message node
 >
 > Enable Text-To-Speech
 >
@@ -55,6 +55,8 @@
 
 ### Add an HTTP Request node for our query
 
+> Connect the output node edge from the play message node to this node
+> 
 > Select Use Authenticated Endpoint
 >
 > Connector: WxCC_API
@@ -134,6 +136,8 @@ Variables:
 > ---
 
 ### Add a Condition node
+> Connect the output from the HTTP Request node to this node
+>
 > Expression: <copy>`{{previousID is empty}}`</copy>
 >
 > We will connect the True node in a future step.
@@ -158,6 +162,8 @@ Variables:
 ---
 
 ### Add a Queue Contact node
+>  Connect the output node edge from the Play Message node added in the last step to this node
+> 
 > Select Static Queue
 >
 > Queue: <w class="Queue">yourQueueID</w>
@@ -169,6 +175,22 @@ Variables:
 ---
 
 ### Add a Subflow node
+> In the Activity Library pane on the left side of the screen, click Subflows
+>
+> Find the Subflow names WaitTreatment and drag it onto the flow canvas like you would any other node.
+>
+> Connect the output node edge from the Queue Contact node added in the previous step to this node.
+>
+> Subflow Label: Latest
+>
+> Enable automatic updates: True
+>
+> Subflow Input Variables: None
+>
+> Subflow Output Variables: None
+>
+> Connect the output node edge from this node to the Disconnect Contact node added in the next step.
+
 
 ---
 

@@ -1,12 +1,12 @@
 # Lab 1 - Routing Returning Callers
 
 ## Story
-> If a customer calls back into the contact center after a dropped call, missed callback, or to continue their original call within ten minutes of the call ending, we are going to prioritize their call in the queue and deliver the call summary to the agent.
+> When a customer calls back into the contact center within ten minutes of their last call ending, we can assume there was a dropped call, missed callback, or they need additional assistance from their last interaction.  We are going to prioritize their call in the queue and deliver the call summary to the agent.
 
 ### High Level Explanation
 1. New call comes into the flow
 2. Call the Search API to check if the ANI (caller's number) had a call which ended in the last 10 minutes
-3. If the caller had a call which ended within the last 10 minutes, We will play a message and will queue the call with a higher priority so they will get assigned to the next available agent.
+3. If the caller had a connected call which ended within the last 10 minutes, we will play a message and will queue the call with a higher priority so they will get assigned to the next available agent.
 4. If the caller did not end a call with the contact center in the previous 10 minutes, we will queue the call normally
 
 ---
@@ -241,27 +241,34 @@ Variables:
 ## Testing
 
 1. Launch the [Agent Desktop](https://desktop.wxcc-us1.cisco.com/) and log in using the Desktop option.
-2. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
-3. On your Agent Desktop, set your status to available
+2. On your Agent Desktop, make sure your status is not set to available
+      1. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+      2. After you hear the queue treatment start, you can abandon the call 
+3. Using Webex, place another call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+4. On your Agent Desktop, set your status to available
       1. You should be offered a call, click on the accept button. (You may want to mute the mic on both Webex and the Agent Desktop)
       2. After a few moments end the call and select a wrapup code.
-4. In your Flow:
+5. In your Flow:
       1. Open the Debugger
       2. Select the last interaction (at the top of the list)
       3. Trace the steps taken in the flow
-5. Answer these questions:
+6. Answer these questions:
       1. Was the call queued with priority?
-6. Close the Debugger
-7. Using Webex, place another call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
-8. On your Agent Desktop, set your status to available
+         1. Why or why not?
+7. Close the Debugger
+8. Using Webex, place another call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+9. On your Agent Desktop, set your status to available
       1. You should be offered a call, click on the accept button. (You may want to mute the mic on both Webex and the Agent Desktop)
       2. After a few moments end the call and select a wrapup code.
-9. In your Flow:
+10. In your Flow:
       1. Open the debugger
       2. Select the last interaction (at the top of the list)
       3. Trace the steps taken in the flow
-10. Answer these questions:
+11. Answer these questions:
       1. Was the call queued with priority?
+         1. Why or why not?
+      2. If you called another Inbound Channel number with the same flow logic, would your call be prioritized?
+         1. How could you change this behavior? 
 
 
 ## Once you have completed the testing, let the instructor know.

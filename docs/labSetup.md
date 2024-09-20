@@ -25,6 +25,6 @@ await sessionStorage.setItem("POD",await response[0].POD)
 
 </script>
 
-[Start the lab](/)
+[Start the lab](../)
 
 

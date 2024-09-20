@@ -216,7 +216,39 @@ Variables:
 
 ---
 
-# Testing
+
+### <details><summary>Check your flow</summary>![](./assets/lab2_LARwCSAT.png)</details>
+
+---
+
+### Publish your flow
+> Turn on Validation at the bottom right corner of the flow builder
+>
+> If there are no Flow Errors, Click Publish
+>
+> Add a publish note
+>
+> Add Version Label(s): Live 
+>
+> Click Publish Flow
+
+---
+
+
+### Map your flow to your inbound channel
+> Navigate to Control Hub > Contact Center > Channels
+>
+> Locate your Inbound Channel (you can use the search): <copy><w class="EPname"></w></copy>
+>
+> Select the Routing Flow: <copy><w class="POD"></w>_LARwCSAT</copy>
+>
+> Select the Version Label: Live
+>
+> Click Save in the lower right corner of the screen
+
+---
+
+## Testing
 1. Launch the [Agent Desktop](https://desktop.wxcc-us1.cisco.com/) and log in using the Desktop option.
 2. On your Agent Desktop, set your status to available
       1. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
@@ -266,6 +298,6 @@ Variables:
       3. How do you think that you could change the logic/criteria to meet other business needs? 
 
 
-## Once you have completed the testing, let the instructor know.
+# Once you have completed the testing, let the instructor know.
 ---
 <script src='../assets/load.js'><script>

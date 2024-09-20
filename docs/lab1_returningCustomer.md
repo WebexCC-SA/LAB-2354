@@ -271,7 +271,7 @@ Variables:
          1. How could you change this behavior? 
 
 
-## Once you have completed the testing, let the instructor know.
+# Once you have completed the testing, let the instructor know.
 ---
 
 <script src='../assets/load.js'><script>

@@ -221,21 +221,80 @@
 ---
 
 ## Unit Test the Flow
+1. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+      1. You should here the TTS message explaining the issue, giving you the option to press 1 to receive a link to instructions via SMS or to enter the queue as the 1 call in queue press 2.
+      1. Press 2
+         1. you should here the music in queue.
+         2. Hang up
+2. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+      1. You should here the TTS message explaining the issue, giving you the option to press 1 to receive a link to instructions via SMS or to enter the queue as the 1 call in queue press 2.
+      1. Press 1
+      2. Enter your 10 digit US based mobile number
+      3. You should here the message "You have entered", number you entered read back to you, and the option to receive and SMS message at that number or to enter in another number.
+         1. Press 2
+         2. Enter in a different number
+         3. You should here the message "You have entered", number you entered read back to you, and the option to receive and SMS message at that number or to enter in another number.
+            1. Press 2
+                  1. Enter in your original SMS number
+                  2. You should here the message "You have entered", number you entered read back to you, and the option to receive and SMS message at that number or to enter in another number.
+                  3. Press 1
+                  4. You will hear the message "You should receive a text message with a link to instructions for resolving the issue within a few minutes. Goodbye."
+                  5. The call will be disconnected
+3. You will Receive an SMS message with a link to a youtube video and instructions to reply either "Resolved" or "Help"
+      1. Reply Resolved
 
 
 ---
 
 
 ## Edit the CrowdStrike_Starter Flow
+> In Control Hub > Contact Center > Flows 
+>
 > Open the flow: <copy><w class="POD"></w>_CrowdStrikeStarter</copy>
+>
+> Switch on the Edit toggle in the header section of the flow builder
 
 ---
 
 ### Replace the Play Message node which we put in once we identified the event with a Menu node
+> Delete the Play Message node which is connected to the CrowdStrike node edge of the 
+>
+> Add a Menu node
+>
+> Connect the output node edge from the Collect Digits node to this Menu node
+>
+> Enable Text-To-Speech
+>
+> Select the Connector: Cisco Cloud Text-to-Speech
+>
+> Click the Add Text-to-Speech Message button
+>
+> Delete the Selection for Audio File
+>
+> Text-to-Speech Message: <copy>`There is a widespread Issue with Microsoft Windows not being able to boot and giving a bluescreen.  If you are facing this issue, please press 1.  If you are calling regarding a different issue, press 2.`</copy>
+> 
+> Select: Make Prompt Interruptible
+>
+> In Custom Menu Links:
+>
+> > Use the Add New button and the Digit Number selector to provide Options 1 and 2
+>
+> Connect the No-Input Timeout and Unmatched Entry node edges and connect them to the front of this Menu node
+>
+> Connect the 2 node edge output to the main Menu node 
 
 ---
 
 ### Add a Go To node
+> Connect the 1 node edge from the new Menu node you created in the previous step to this Go To node
+>
+> Destination Type: Flow
+>
+> Select Static Flow
+>
+> Flow: <copy><w class="POD"></w>_CrowdStrikeHelp</copy>
+>
+> Choose Version Label: Latest
 
 ---
 
@@ -262,11 +321,45 @@
 > Select the Version Label: Live
 >
 > Click Save in the lower right corner of the screen
+---
+
+### Make a test call to your inbound channel number
+> From Webex call your mapped inbound channel number: <copy><w class="EPDN"></w></copy>
+>
+> !!! Note
+       You will not hear the changes you have made to the flow as you published a different version of the flow using the version label. <br>
+       This is to show that you can make changes to a flow without affecting the live/active version of the running flow. <br>
+       In the next step we will map the "Test" version of the flow you just published.  <br>
+       Pretend that the next mapping activity would be completed on a number you are using for testing before committing your changes to the live flow.
+
+
+---
+
+### Map your flow to your inbound channel
+> Navigate to Control Hub > Contact Center > Channels
+>
+> Locate your Inbound Channel (you can use the search): <copy><w class="EPname"></w></copy>
+>
+> Select the Routing Flow: <copy><w class="POD"></w>_CrowdStrikeStarter</copy>
+>
+> Select the Version Label: Test
+>
+> Click Save in the lower right corner of the screen
 
 ## Dev Testing
-1. Take option 1
-2. Take option 2
-3. Enter no selection
+1. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+      1. After hearing the Menu prompt to press 1 if you are experiencing the blue screen issue or 2 if you are calling about a different issue, press 2.
+      2. You should hear the normal main menu prompt
+         1. Hang up
+
+2. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+      1. After hearing the Menu prompt to press 1 if you are experiencing the blue screen issue or 2 if you are calling about a different issue.
+      2. Enter no selection
+         1. You should hear the previous menu prompt again.
+         2. Press 2.
+         3. You should hear the first Menu prompt from the <w class="POD"></w>_CrowdStrikeHelp
+         4. Hang up or you can test one of the paths again.
+
 
 ---
 
@@ -294,18 +387,36 @@
 > Select the Version Label: Live
 >
 > Click Save in the lower right corner of the screen
+>
+> !!! Note
+      Pretend that this mapping activity would be completed on the main number for the production IT flow.
 
 ---
 
 ## Smoke Test
-1. Take option 1
-2. Take option 2
-3. Enter no selection
+1. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+      1. After hearing the Menu prompt to press 1 if you are experiencing the blue screen issue or 2 if you are calling about a different issue, press 2.
+      2. You should hear the normal main menu prompt
+         1. Hang up
+
+2. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
+      1. After hearing the Menu prompt to press 1 if you are experiencing the blue screen issue or 2 if you are calling about a different issue.
+      2. Enter no selection
+         1. You should hear the previous menu prompt again.
+         2. Press 2.
+         3. You should hear the first Menu prompt from the <w class="POD"></w>_CrowdStrikeHelp
+         4. Hang up or you can test one of the paths again.
+3. Answer the following questions:
+      1. Why did we run the same tests as we did for the Dev Testing?
+      2. How could we change the flow behavior after the CrowdStrike event has ended? (There are several answers.)
+      3. How would you improve this flow?
 
 
 ---
 
+# Once you have completed the testing, let the instructor know.
 
+---
 
 
 <script src='../assets/load.js'><script>

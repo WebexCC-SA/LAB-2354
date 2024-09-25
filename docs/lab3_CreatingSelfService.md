@@ -298,6 +298,10 @@
 
 ---
 
+### <details><summary>Check your flow</summary>![](./assets/lab3_modifided_starter.png)</details>
+
+---
+
 ### Publish the Flow Using the Test Tag
 > Turn on Validation at the bottom right corner of the flow builder
 >

@@ -240,7 +240,7 @@ Variables:
 
 ## Testing
 
-1. Launch the [Agent Desktop](https://desktop.wxcc-us1.cisco.com/) and log in using the Desktop option.
+1. Launch the [Agent Desktop](https://desktop.wxcc-us1.cisco.com/){:target="_blank"} and log in selecting the Desktop option for your Voice connection.
 2. On your Agent Desktop, make sure your status is not set to available
       1. Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy>
       2. After you hear the queue treatment start, you can abandon the call 

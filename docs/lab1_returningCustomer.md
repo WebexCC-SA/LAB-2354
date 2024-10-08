@@ -26,7 +26,7 @@
 
 ---
 
-### Create these flow variables
+### Create this flow variable
 
 > Name: <copy>previousID</copy>
 >

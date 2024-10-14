@@ -157,7 +157,7 @@ Variables:
 >
 > Delete the Selection for Audio File
 >
-> Text-to-Speech Message: It looks like you were just working with an agent and had to call back in.  We are prioritizing this call for the next available agent.
+> Text-to-Speech Message: <copy>It looks like you were just working with an agent and had to call back in.  We are prioritizing this call for the next available agent.</copy>
 >
 ---
 
@@ -222,6 +222,9 @@ Variables:
 > Add Version Label(s): Live 
 >
 > Click Publish Flow
+
+> !!! Note
+      Remember to select "Return to Flow" after you publish your flow.
 
 ---
 

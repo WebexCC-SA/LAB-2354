@@ -80,7 +80,7 @@
 >
 > Copy this GraphQL query into the request body:
 ```JSON
-{"query":"query simulatedCSAT($from:Long! $to:Long! $timeComparator:QueryTimeType $filter:TaskFilters $name:String!){task(from:$from,to:$to,timeComparator:$timeComparator,filter:$filter){tasks{owner{name id}simulatedCSAT:doubleGlobalVariables(name:$name){name value}}}}","variables":{"from":"{{now() | epoch(inMillis=true) - 604800000}}","to":"{{now() | epoch(inMillis=true)}}","timeComparator":"endedTime","filter":{"and":[{"status":{"equals":"ended"}},{"origin":{"equals":"{{NewPhoneContact.ANI}}"}},{"doubleGlobalVariables":{"name":{"equals":"simulatedCSAT"},"value":{"gte":3}}}]},"name":"simulatedCSAT2"}}
+{"query":"query simulatedCSAT($from:Long! $to:Long! $timeComparator:QueryTimeType $filter:TaskFilters $name:String!){task(from:$from,to:$to,timeComparator:$timeComparator,filter:$filter){tasks{owner{name id}simulatedCSAT:doubleGlobalVariables(name:$name){name value}}}}","variables":{"from":"{{now() | epoch(inMillis=true) - 604800000}}","to":"{{now() | epoch(inMillis=true)}}","timeComparator":"endedTime","filter":{"and":[{"status":{"equals":"ended"}},{"origin":{"equals":"{{NewPhoneContact.ANI}}"}},{"doubleGlobalVariables":{"name":{"equals":"simulatedCSAT"},"value":{"gte":3}}}]},"name":"simulatedCSAT"}}
 ```
 > <details><summary>Expanded Query For Understanding (optional)</summary>
 ```GraphQL
@@ -99,7 +99,7 @@ query simulatedCSAT(
       }
       simulatedCSAT: doubleGlobalVariables(name: $name) {
         name
-        value #Value of the simulatedCSAT2
+        value #Value of the simulatedCSAT
       }
     }
   }
@@ -127,7 +127,7 @@ Variables:
       {
         "doubleGlobalVariables": { #Filtering on the Global Variable simulatedCSAT to be greater or equal to 3 
           "name": {
-            "equals": "simulatedCSAT2" 
+            "equals": "simulatedCSAT" 
           },
           "value": {
             "gte": 3

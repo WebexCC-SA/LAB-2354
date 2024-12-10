@@ -1,0 +1,1162 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="LAB-2354 - Webex Contact Center Lab&colon; Solution Use-case and APIs">
+      
+      
+        <meta name="author" content="John Doe">
+      
+      
+      
+        <link rel="prev" href="../lab1_returningCustomer/">
+      
+      
+        <link rel="next" href="../lab3_CreatingSelfService/">
+      
+      
+      <link rel="icon" href="../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>Lab 2 - Last Agent Routing Using Simulated Auto CSAT - LAB-2354 - Webex Contact Center Lab&colon; Solution Use-case and APIs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-2-last-agent-routing-using-simulated-auto-csat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LAB-2354 - Webex Contact Center Lab&amp;colon; Solution Use-case and APIs" class="md-header__button md-logo" aria-label="LAB-2354 - Webex Contact Center Lab&colon; Solution Use-case and APIs" data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2354 - Webex Contact Center Lab&colon; Solution Use-case and APIs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 2 - Last Agent Routing Using Simulated Auto CSAT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
+          
+  
+    
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheatsheet/" class="md-tabs__link">
+        
+  
+    
+  
+  Cheat Sheet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../additionalResources/" class="md-tabs__link">
+        
+  
+    
+  
+  <z onclick='(function(){window.open("https://webexcc-sa.github.io","_blank")}())'>Additional Resources</z>
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LAB-2354 - Webex Contact Center Lab&amp;colon; Solution Use-case and APIs" class="md-nav__button md-logo" aria-label="LAB-2354 - Webex Contact Center Lab&colon; Solution Use-case and APIs" data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2354 - Webex Contact Center Lab&colon; Solution Use-case and APIs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1_returningCustomer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 1 - Routing Returning Callers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab 2 - Last Agent Routing Using Simulated Auto CSAT
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab 2 - Last Agent Routing Using Simulated Auto CSAT
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#story" class="md-nav__link">
+    <span class="md-ellipsis">
+      Story
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Story">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      High Level Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preconfigured-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preconfigured elements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-new-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an new flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-these-flow-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create these flow variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-global-variable-simulatedcsat-to-the-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the Global Variable simulatedCSAT to the flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-play-message-node-for-our-welcome-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Play Message node for our welcome message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-an-http-request-node-for-our-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add an HTTP Request node for our query
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-condition-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Condition node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-queue-to-agent-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Queue To Agent node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-queue-contact-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Queue Contact node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-subflow-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Subflow node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-disconnect-contact-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Disconnect Contact node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-your-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish-your-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publish your flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-your-flow-to-your-inbound-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map your flow to your inbound channel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3_CreatingSelfService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 3 - Creating a Self Service Support Option in an Emergency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additionalResources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <z onclick='(function(){window.open("https://webexcc-sa.github.io","_blank")}())'>Additional Resources</z>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-2-last-agent-routing-using-simulated-auto-csat">Lab 2 - Last Agent Routing Using Simulated Auto CSAT</h1>
+<h2 id="story">Story</h2>
+<blockquote>
+<p>A common request for returning customers calling into a contact center is to work with the last person with which they had a good experience.  This may be because they are already familiar with what the customer needs or it may just be that the customer is familiar with the agent and enjoyed their last interaction. With the new Auto CSAT feature in the Webex Contact Center we can automatically account for this request and route to the last agent which had a high Auto CSAT with the customer.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because this is a lab environment and you will be playing both the role of the customer and agent, we are going to use a simulated CSAT as it would be difficult to properly score a call in these conditions.  </p>
+</div>
+</blockquote>
+<h3 id="high-level-explanation">High Level Explanation</h3>
+<ol>
+<li>New call comes into the flow</li>
+<li>Call the Search API to find the last agent with which they had a good CSAT</li>
+<li>If the agent is available, we will route the call to that agent</li>
+<li>If the agent is not available or if no recent good CSAT scores exits for the caller, we will route the call to the queue for the next available agent. </li>
+</ol>
+<h2 id="preconfigured-elements">Preconfigured elements</h2>
+<ol>
+<li>Wait treatment Subflow which will provide Music in Queue and Queue Messages. </li>
+<li>Connector for calling Webex Contact Center APIs</li>
+<li>Agent Editable and Reportable Global Variable for our simulated CSAT</li>
+</ol>
+<hr />
+<h2 id="build">Build</h2>
+<h3 id="create-an-new-flow">Create an new flow</h3>
+<blockquote>
+<p>Create a flow named <copy><w class="POD">yourLabID</w>_LARwCSAT</copy></p>
+</blockquote>
+<h3 id="create-these-flow-variables">Create these flow variables</h3>
+<blockquote>
+<p>Name: <copy>agentID</copy></p>
+<p>Type: String</p>
+<p>Default Value: empty</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>Name: <copy>queriedCSAT</copy></p>
+<p>Type: Decimal</p>
+<p>Default Value: <copy>0.0</copy></p>
+</blockquote>
+<hr />
+<h3 id="add-the-global-variable-simulatedcsat-to-the-flow">Add the Global Variable simulatedCSAT to the flow</h3>
+<blockquote>
+<p>There are no values to set because it has already been configured globally</p>
+</blockquote>
+<hr />
+<h3 id="add-a-play-message-node-for-our-welcome-message">Add a Play Message node for our welcome message</h3>
+<blockquote>
+<p>Connect the New Phone Contact to this Play Message node</p>
+<p>Enable Text-To-Speech</p>
+<p>Select the Connector: Cisco Cloud Text-to-Speech</p>
+<p>Click the Add Text-to-Speech Message button</p>
+<p>Delete the Selection for Audio File</p>
+<p>Text-to-Speech Message: <copy>Welcome to Lab 2 of Solutions use-cases and APIs.</copy>
+</p>
+</blockquote>
+<hr />
+<h3 id="add-an-http-request-node-for-our-query">Add an HTTP Request node for our query</h3>
+<blockquote>
+<p>Connect the output node edge from the Play Message node to this node</p>
+<p>Select Use Authenticated Endpoint</p>
+<p>Connector: WxCC_API</p>
+<p>Path: /search</p>
+<p>Method: POST</p>
+<p>Content Type: Application/JSON</p>
+<p>Copy this GraphQL query into the request body:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="s2">&quot;query simulatedCSAT($from:Long! $to:Long! $timeComparator:QueryTimeType $filter:TaskFilters $name:String!){task(from:$from,to:$to,timeComparator:$timeComparator,filter:$filter){tasks{owner{name id}simulatedCSAT:doubleGlobalVariables(name:$name){name value}}}}&quot;</span><span class="p">,</span><span class="nt">&quot;variables&quot;</span><span class="p">:{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;{{now() | epoch(inMillis=true) - 604800000}}&quot;</span><span class="p">,</span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;{{now() | epoch(inMillis=true)}}&quot;</span><span class="p">,</span><span class="nt">&quot;timeComparator&quot;</span><span class="p">:</span><span class="s2">&quot;endedTime&quot;</span><span class="p">,</span><span class="nt">&quot;filter&quot;</span><span class="p">:{</span><span class="nt">&quot;and&quot;</span><span class="p">:[{</span><span class="nt">&quot;status&quot;</span><span class="p">:{</span><span class="nt">&quot;equals&quot;</span><span class="p">:</span><span class="s2">&quot;ended&quot;</span><span class="p">}},{</span><span class="nt">&quot;origin&quot;</span><span class="p">:{</span><span class="nt">&quot;equals&quot;</span><span class="p">:</span><span class="s2">&quot;{{NewPhoneContact.ANI}}&quot;</span><span class="p">}},{</span><span class="nt">&quot;doubleGlobalVariables&quot;</span><span class="p">:{</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;equals&quot;</span><span class="p">:</span><span class="s2">&quot;simulatedCSAT&quot;</span><span class="p">},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;gte&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}}}]},</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;simulatedCSAT&quot;</span><span class="p">}}</span>
+</code></pre></div>
+<details><summary>Expanded Query For Understanding (optional)</summary>
+<div class="highlight"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">simulatedCSAT</span><span class="p">(</span>
+<span class="w">  </span><span class="nv">$from</span><span class="p">:</span><span class="w"> </span><span class="nc">Long</span><span class="p">!</span>
+<span class="w">  </span><span class="nv">$to</span><span class="p">:</span><span class="w"> </span><span class="nc">Long</span><span class="p">!</span>
+<span class="w">  </span><span class="nv">$timeComparator</span><span class="p">:</span><span class="w"> </span><span class="nc">QueryTimeType</span>
+<span class="w">  </span><span class="nv">$filter</span><span class="p">:</span><span class="w"> </span><span class="nc">TaskFilters</span>
+<span class="w">  </span><span class="nv">$name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">task</span><span class="p">(</span><span class="n">from</span><span class="p">:</span><span class="w"> </span><span class="nv">$from</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">:</span><span class="w"> </span><span class="nv">$to</span><span class="p">,</span><span class="w"> </span><span class="n">timeComparator</span><span class="p">:</span><span class="w"> </span><span class="nv">$timeComparator</span><span class="p">,</span><span class="w"> </span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="nv">$filter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">tasks</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">owner</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="c">#Agent Name</span>
+<span class="w">        </span><span class="n">id</span><span class="w"> </span><span class="c">#Agent ID</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="nl">simulatedCSAT</span><span class="p">:</span><span class="w"> </span><span class="n">doubleGlobalVariables</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nv">$name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">name</span>
+<span class="w">        </span><span class="n">value</span><span class="w"> </span><span class="c">#Value of the simulatedCSAT</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">Variables</span><span class="p">:</span>
+
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{now() | epoch(inMillis=true) - 604800000}}&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="kc">t</span><span class="err">ime</span><span class="w"> </span><span class="kc">n</span><span class="err">ow</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">week</span><span class="w"> </span><span class="err">represe</span><span class="kc">nte</span><span class="err">d</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">EPOCH</span><span class="w"> </span><span class="kc">t</span><span class="err">ime(ms)</span>
+<span class="w">  </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{now() | epoch(inMillis=true)}}&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="kc">t</span><span class="err">ime</span><span class="w"> </span><span class="kc">n</span><span class="err">ow</span><span class="w"> </span><span class="err">represe</span><span class="kc">nte</span><span class="err">d</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">EPOCH</span><span class="w"> </span><span class="kc">t</span><span class="err">ime(ms)</span>
+<span class="w">  </span><span class="nt">&quot;timeComparator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endedTime&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;filter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;and&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;equals&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ended&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;origin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;equals&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{NewPhoneContact.ANI}}&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;doubleGlobalVariables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">#Fil</span><span class="kc">ter</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">Global</span><span class="w"> </span><span class="err">Variable</span><span class="w"> </span><span class="err">simula</span><span class="kc">te</span><span class="err">dCSAT</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">grea</span><span class="kc">ter</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">equal</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;equals&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simulatedCSAT&quot;</span><span class="w"> </span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;gte&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simulatedCSAT&quot;</span><span class="w"> </span><span class="err">#The</span><span class="w"> </span><span class="err">Alias</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="w"> </span><span class="err">used</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">global</span><span class="w"> </span><span class="err">variable</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">re</span><span class="kc">turne</span><span class="err">d</span><span class="w"> </span><span class="kc">f</span><span class="err">ields</span>
+<span class="p">}</span>
+</code></pre></div>
+</details></p>
+<p>Parse Settings:</p>
+<p>Content Type: JSON</p>
+<ul>
+<li>Output Variable: <code>agentID</code></li>
+<li>
+<p>Path Expression: <copy><code>$.data.task.tasks[0].owner.id</code></copy></p>
+</li>
+<li>
+<p>Output Variable: <code>queriedCSAT</code></p>
+</li>
+<li>Path Expression: <copy><code>$.data.task.tasks[0].simulatedCSAT.value</code></copy>
+</li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="add-a-condition-node">Add a Condition node</h3>
+<blockquote>
+<p>Connect the output node edge from teh HTTP Request node to this node</p>
+<p>Expression: <copy><code>{{agentID is empty}}</code></copy></p>
+<p>We will connect the True node in a future step.</p>
+<p>Connect the False node edge to the Queue To Agent node created in the next step.
+</p>
+</blockquote>
+<hr />
+<h3 id="add-a-queue-to-agent-node">Add a Queue To Agent node</h3>
+<blockquote>
+<p>Agent Variable: agentID</p>
+<p>Agent Lookup Type: ID</p>
+<p>Set Contact Priority: True</p>
+<p>Select Static Priority</p>
+<p>Static Priority Value: P1</p>
+<p>Reporting Queue: <w class="Queue">yourQueueID</w></p>
+<p>Park Contact if Agent Unavailable: False</p>
+<p>Recovery Queue: <w class="Queue">yourQueueID</w></p>
+<p>Connect the Output and Error node edges to the Queue Contact node created in the next step</p>
+</blockquote>
+<hr />
+<h3 id="add-a-queue-contact-node">Add a Queue Contact node</h3>
+<blockquote>
+<p>Connect the True node edge from the Condition node to this node</p>
+<p>Select Static Queue</p>
+<p>Queue: <w class="Queue">yourQueueID</w></p>
+<p>Connect the Output node edge from this node to the Subflow node</p>
+</blockquote>
+<hr />
+<h3 id="add-a-subflow-node">Add a Subflow node</h3>
+<blockquote>
+<p>In the Activity Library pane on the left side of the screen, click Subflows</p>
+<p>Find the Subflow names WaitTreatment and drag it onto the flow canvas like you would any other node.</p>
+<p>Connect the output node edge from the Queue Contact node added in the previous step to this node.</p>
+<p>Subflow Label: Latest</p>
+<p>Enable automatic updates: True</p>
+<p>Subflow Input Variables: None</p>
+<p>Subflow Output Variables: None</p>
+<p>Connect the output node edge from this node to the Disconnect Contact node added in the next step.</p>
+</blockquote>
+<hr />
+<h3 id="add-a-disconnect-contact-node">Add a Disconnect Contact node</h3>
+<hr />
+<h3 id="check-your-flow"><details><summary>Check your flow</summary><a class="glightbox" href="../assets/lab2_LARwCSAT.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="top"><img alt="" src="../assets/lab2_LARwCSAT.png" /></a></details></h3>
+<hr />
+<h3 id="publish-your-flow">Publish your flow</h3>
+<blockquote>
+<p>Turn on Validation at the bottom right corner of the flow builder</p>
+<p>If there are no Flow Errors, Click Publish</p>
+<p>Add a publish note</p>
+<p>Add Version Label(s): Live </p>
+<p>Click Publish Flow</p>
+</blockquote>
+<hr />
+<h3 id="map-your-flow-to-your-inbound-channel">Map your flow to your inbound channel</h3>
+<blockquote>
+<p>Navigate to Control Hub &gt; Contact Center &gt; Channels</p>
+<p>Locate your Inbound Channel (you can use the search): <copy><w class="EPname"></w></copy></p>
+<p>Select the Routing Flow: <copy><w class="POD"></w>_LARwCSAT</copy></p>
+<p>Select the Version Label: Live</p>
+<p>Click Save in the lower right corner of the screen</p>
+</blockquote>
+<hr />
+<h2 id="testing">Testing</h2>
+<ol>
+<li>Launch the <a href="https://desktop.wxcc-us1.cisco.com/">Agent Desktop</a> and log in using the Desktop option.</li>
+<li>On your Agent Desktop, set your status to available<ol>
+<li>Using Webex, place a call to your Inbound Channel number <copy><w class="EPDN"></w></copy></li>
+<li>You should be offered a call, click on the accept button. (You may want to mute the mic on both Webex and the Agent Desktop)</li>
+<li>In the Agent Desktop you will see a new field in Call Information section where you can edit the Simulated CSAT.  Enter a value of <copy>2.9</copy> and click save.</li>
+<li>After a few moments end the call and select a wrapup code.</li>
+</ol>
+</li>
+<li>Using Webex, place another call to your Inbound Channel number <copy><w class="EPDN"></w></copy><ol>
+<li>You should be offered the call, click on the accept button.</li>
+<li>Enter a value of <copy>3.7</copy> in for Simulated CSAT and click save.</li>
+<li>After a few moments end the call and select a wrapup code.</li>
+</ol>
+</li>
+<li>In your Flow:<ol>
+<li>Open the debugger</li>
+<li>Select the first interaction (at the bottom of the list)</li>
+<li>Trace the steps taken in the flow</li>
+<li>Open the last interaction </li>
+<li>Trace the steps taken in the flow</li>
+</ol>
+</li>
+<li>Answer these questions:<ol>
+<li>Did the second call get routed to your agent via the Queue To Agent node?<ol>
+<li>Why or why not</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>On your Agent Desktop, set your status to not be available</li>
+<li>Using Webex, place another call to your Inbound Channel number <copy><w class="EPDN"></w></copy></li>
+<li>After you hear the queue treatment start, change your status to available on the agent desktop.<ol>
+<li>You should be offered the call, click on the accept button.</li>
+<li>Enter a value of <copy>2.8</copy> in for Simulated CSAT and click save.</li>
+<li>After a few moments end the call and select a wrapup code.</li>
+</ol>
+</li>
+<li>In your Flow:<ol>
+<li>Open the debugger</li>
+<li>Select the last interaction</li>
+<li>Trace the steps taken in the flow</li>
+</ol>
+</li>
+<li>Answer these questions:<ol>
+<li>Was the call routed to the Queue to Agent node?</li>
+<li>What happened next?<ol>
+<li>Why?</li>
+<li>What will happen if you call in again starting in the Available status?</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Make sure that you are in Available status on the agent desktop.</li>
+<li>Using Webex, place another call to your Inbound Channel number <copy><w class="EPDN"></w></copy><ol>
+<li>You should be offered the call, click on the accept button.</li>
+<li>After a few moments end the call and select a wrapup code.</li>
+</ol>
+</li>
+<li>In your Flow:<ol>
+<li>Open the debugger</li>
+<li>Select the last interaction</li>
+<li>Trace the steps taken in the flow</li>
+</ol>
+</li>
+<li>Answer the following questions:<ol>
+<li>Was the call offered to you from the Queue to Agent node?</li>
+<li>What was the value of the variable queriedCSAT (look in the HTTP node step)<ol>
+<li>Why?</li>
+</ol>
+</li>
+<li>How do you think that you could change the logic/criteria to meet other business needs? </li>
+</ol>
+</li>
+</ol>
+<h1 id="once-you-have-completed-the-testing-let-the-instructor-know">Once you have completed the testing, let the instructor know.</h1>
+<hr />
+<script src='../assets/load.js'><script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lab1_returningCustomer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 1 - Routing Returning Callers">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lab 1 - Routing Returning Callers
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lab3_CreatingSelfService/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 3 - Creating a Self Service Support Option in an Emergency">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Lab 3 - Creating a Self Service Support Option in an Emergency
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

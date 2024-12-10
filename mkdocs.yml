@@ -78,7 +78,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Labs:
-      - Welcome: welcome.md
+      # - Welcome: welcome.md
       - Overview: overview.md
       # - Lab 1 - Getting Started: lab1_getting_started.md
       - Lab 1 - Routing Returning Callers: lab1_returningCustomer.md
